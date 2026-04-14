@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Заголовок страницы в браузере -->
+    <!-- Заголовок страницы -->
     <title>Gravity Tennis Center | Прайс-лист</title>
 
     <!-- МЕТА-ТЕГИ ДЛЯ КРАСИВОГО ПРЕВЬЮ (Open Graph) -->
-    <!-- Эти теги решают проблему отображения ссылки в мессенджерах -->
+    <!-- Теперь используем ваш новый официальный домен .kz -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://gravity-taraz.vercel.app/">
+    <meta property="og:url" content="https://gravity-taraz.kz/">
     <meta property="og:title" content="Gravity Tennis Center — Прайс-лист">
-    <meta property="og:description" content="Цены на аренду кортов и обучение теннису в Таразе. Запишитесь на игру прямо сейчас!">
+    <meta property="og:description" content="Цены на аренду кортов и обучение теннису в Таразе. Запишитесь на игру в Gravity!">
     
-    <!-- Важно: Путь к картинке. Если файл preview.jpg лежит в корне гитхаба, используйте прямой URL -->
-    <meta property="og:image" content="https://gravity-taraz.vercel.app/preview.jpg">
+    <!-- Путь к картинке превью -->
+    <meta property="og:image" content="https://gravity-taraz.kz/preview.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
-    <!-- Теги для Twitter -->
+    <!-- Настройки для Twitter/X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Gravity Tennis Center">
-    <meta name="twitter:image" content="https://gravity-taraz.vercel.app/preview.jpg">
+    <meta name="twitter:image" content="https://gravity-taraz.kz/preview.jpg">
 
-    <!-- Подключение стилей и шрифтов -->
+    <!-- Tailwind CSS и Шрифты -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,600;0,800;1,800&display=swap" rel="stylesheet">
     
@@ -35,6 +35,7 @@
             color: #f1f5f9;
             margin: 0;
             padding: 0;
+            -webkit-tap-highlight-color: transparent;
         }
         .glass-panel {
             background: rgba(26, 28, 32, 0.9);
@@ -48,33 +49,31 @@
             color: #facc15;
             font-weight: 800;
         }
-        /* Убираем лишние отступы у картинок */
-        img {
-            display: block;
-            max-width: 100%;
-            height: auto;
+        /* Улучшение отображения на мобильных */
+        @media (max-width: 380px) {
+            h1 { font-size: 1.25rem !important; }
+            .p-7 { padding: 1.25rem !important; }
         }
     </style>
 </head>
 <body class="antialiased pb-20">
 
     <!-- Шапка с логотипом -->
-    <div class="pt-12 pb-8 flex flex-col items-center justify-center">
-        <!-- Контейнер для логотипа -->
+    <header class="pt-12 pb-8 flex flex-col items-center justify-center">
         <div class="w-40 h-40 mb-6 flex items-center justify-center">
-            <img src="https://i.ibb.co.com/ZR32J7gz/EE18302-D-DF79-4-E8-E-837-A-706-CF9-F2-CE91.png" alt="Gravity Logo">
+            <img src="https://i.ibb.co.com/ZR32J7gz/EE18302-D-DF79-4-E8-E-837-A-706-CF9-F2-CE91.png" alt="Gravity Logo" class="w-full h-full object-contain">
         </div>
         
-        <!-- Заголовок: в одну строку, белый, капсом, жирный курсив -->
+        <!-- Заголовок: одна строка, белый, прописные -->
         <h1 class="text-2xl font-800 tracking-tighter text-white uppercase italic leading-none text-center">
             Gravity Tennis Center
         </h1>
-    </div>
+    </header>
 
-    <!-- Основной контент -->
-    <div class="max-w-md mx-auto px-5 space-y-6">
+    <!-- Сетка цен -->
+    <main class="max-w-md mx-auto px-5 space-y-6">
 
-        <!-- Секция: Аренда кортов -->
+        <!-- Аренда кортов -->
         <section class="glass-panel rounded-[2.5rem] p-7 shadow-2xl">
             <div class="flex items-center gap-2 mb-6">
                 <span class="w-1.5 h-5 clay-accent rounded-full"></span>
@@ -90,6 +89,7 @@
                     <span class="text-gray-400 italic font-medium">09:00 — 13:00</span>
                     <span class="price-text text-xl italic">5 000 ₸</span>
                 </div>
+                <!-- Выделенный блок для дневного времени -->
                 <div class="flex justify-between items-center text-sm bg-orange-500/5 p-2 rounded-lg -mx-2 border border-orange-500/10">
                     <span class="text-orange-400 italic font-semibold">13:00 — 15:00</span>
                     <span class="price-text text-xl italic">4 000 ₸</span>
@@ -107,17 +107,17 @@
                 </div>
                 <div class="flex justify-between text-[10px] text-gray-500 font-medium">
                     <span class="uppercase tracking-wider">Мячи (корзина)</span>
-                    <span class="text-green-500 font-bold uppercase">Бесплатно</span>
+                    <span class="text-green-500 font-bold uppercase tracking-widest">Бесплатно</span>
                 </div>
             </div>
         </section>
 
-        <!-- Секция: Группы -->
+        <!-- Группы -->
         <section class="glass-panel rounded-[2.5rem] p-7 shadow-2xl border-t-2 border-orange-500/30">
             <h2 class="text-[11px] font-bold text-white uppercase tracking-[0.2em] mb-6">Групповое обучение</h2>
             
             <div class="space-y-4">
-                <div class="p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors">
+                <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
                     <div class="flex justify-between items-center mb-1">
                         <span class="font-bold text-orange-500 italic text-base">Группа ГНП</span>
                         <span class="price-text text-lg">50 000 ₸</span>
@@ -127,7 +127,7 @@
                     </p>
                 </div>
 
-                <div class="p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors">
+                <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
                     <div class="flex justify-between items-center mb-1">
                         <span class="font-bold text-orange-500 italic text-base">Группа УТГ</span>
                         <span class="price-text text-lg">75 000 ₸</span>
@@ -137,7 +137,7 @@
                     </p>
                 </div>
 
-                <div class="p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors">
+                <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
                     <div class="flex justify-between items-center mb-1">
                         <span class="font-bold text-orange-500 italic text-base">Группа ГСС</span>
                         <span class="price-text text-lg">100 000 ₸</span>
@@ -160,7 +160,7 @@
             </div>
         </section>
 
-        <!-- Секция: Индивидуально -->
+        <!-- Индивидуально -->
         <section class="glass-panel rounded-[2.5rem] p-7 shadow-2xl">
             <h2 class="text-[11px] font-bold text-orange-500 uppercase tracking-[0.2em] mb-7">Персональные занятия</h2>
             
@@ -201,27 +201,27 @@
             </div>
             
             <p class="mt-8 text-[9px] text-center text-gray-600 italic px-6 leading-tight uppercase font-medium">
-                * Цена за тренера. Аренда корта оплачивается отдельно.
+                * Цена указана за работу тренера. Аренда корта оплачивается отдельно по прайсу выше.
             </p>
         </section>
 
         <!-- Кнопка WhatsApp -->
-        <div class="pt-6 pb-12">
+        <footer class="pt-6 pb-12">
             <a href="https://wa.me/77760406670?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%AF%20%D1%85%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D1%83%20%D0%B2%20Gravity" 
                target="_blank"
-               class="flex items-center justify-center gap-4 w-full py-5 clay-accent hover:scale-[1.02] active:scale-95 transition-all text-center rounded-[2.5rem] font-bold text-white uppercase tracking-[0.15em] text-sm shadow-2xl shadow-orange-600/20">
+               class="flex items-center justify-center gap-4 w-full py-5 clay-accent hover:opacity-90 active:scale-95 transition-all text-center rounded-[2.5rem] font-bold text-white uppercase tracking-[0.15em] text-sm shadow-2xl shadow-orange-600/20">
                 <span>Записаться</span>
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
             </a>
             <div class="mt-8 flex flex-col items-center gap-1 opacity-40">
-                <p class="text-[9px] uppercase tracking-[0.4em] font-medium">г. Тараз</p>
-                <p class="text-[8px] uppercase tracking-[0.2em]">Gravity Tennis Center</p>
+                <p class="text-[9px] uppercase tracking-[0.4em] font-medium text-white">г. Тараз</p>
+                <p class="text-[8px] uppercase tracking-[0.2em] text-gray-400">gravity-taraz.kz</p>
             </div>
-        </div>
+        </footer>
 
-    </div>
+    </main>
 
 </body>
 </html>
