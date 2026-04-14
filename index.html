@@ -8,20 +8,21 @@
     <title>Gravity Tennis Center | Прайс-лист</title>
 
     <!-- МЕТА-ТЕГИ ДЛЯ КРАСИВОГО ПРЕВЬЮ (Open Graph) -->
-    <!-- Теперь используем ваш новый официальный домен .kz -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gravity-taraz.kz/">
     <meta property="og:title" content="Gravity Tennis Center — Прайс-лист">
     <meta property="og:description" content="Цены на аренду кортов и обучение теннису в Таразе. Запишитесь на игру в Gravity!">
     
-    <!-- Путь к картинке превью -->
+    <!-- Ссылка на ваше изображение превью -->
     <meta property="og:image" content="https://gravity-taraz.kz/preview.jpg">
+    <meta property="og:image:type" content="image/jpeg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     
     <!-- Настройки для Twitter/X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Gravity Tennis Center">
+    <meta name="twitter:description" content="Цены на аренду кортов и обучение теннису в Таразе.">
     <meta name="twitter:image" content="https://gravity-taraz.kz/preview.jpg">
 
     <!-- Tailwind CSS и Шрифты -->
@@ -49,10 +50,11 @@
             color: #facc15;
             font-weight: 800;
         }
-        /* Улучшение отображения на мобильных */
+        /* Адаптив для маленьких экранов */
         @media (max-width: 380px) {
             h1 { font-size: 1.25rem !important; }
             .p-7 { padding: 1.25rem !important; }
+            .price-text { font-size: 1.1rem !important; }
         }
     </style>
 </head>
@@ -64,8 +66,7 @@
             <img src="https://i.ibb.co.com/ZR32J7gz/EE18302-D-DF79-4-E8-E-837-A-706-CF9-F2-CE91.png" alt="Gravity Logo" class="w-full h-full object-contain">
         </div>
         
-        <!-- Заголовок: одна строка, белый, прописные -->
-        <h1 class="text-2xl font-800 tracking-tighter text-white uppercase italic leading-none text-center">
+        <h1 class="text-2xl font-[800] tracking-tighter text-white uppercase italic leading-none text-center">
             Gravity Tennis Center
         </h1>
     </header>
@@ -81,21 +82,21 @@
             </div>
             
             <div class="space-y-4">
-                <div class="flex justify-between items-center text-sm">
-                    <span class="text-gray-400 italic">07:00 — 09:00</span>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400 italic text-sm">07:00 — 09:00</span>
                     <span class="price-text text-xl italic">4 000 ₸</span>
                 </div>
-                <div class="flex justify-between items-center text-sm">
-                    <span class="text-gray-400 italic font-medium">09:00 — 13:00</span>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400 italic font-medium text-sm">09:00 — 13:00</span>
                     <span class="price-text text-xl italic">5 000 ₸</span>
                 </div>
-                <!-- Выделенный блок для дневного времени -->
-                <div class="flex justify-between items-center text-sm bg-orange-500/5 p-2 rounded-lg -mx-2 border border-orange-500/10">
-                    <span class="text-orange-400 italic font-semibold">13:00 — 15:00</span>
+                <!-- Акцент на дневное время -->
+                <div class="flex justify-between items-center bg-orange-500/10 p-3 rounded-2xl -mx-2 border border-orange-500/20">
+                    <span class="text-orange-400 italic font-semibold text-sm">13:00 — 15:00</span>
                     <span class="price-text text-xl italic">4 000 ₸</span>
                 </div>
-                <div class="flex justify-between items-center text-sm">
-                    <span class="text-gray-400 italic font-medium">15:00 — 24:00</span>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-400 italic font-medium text-sm">15:00 — 24:00</span>
                     <span class="price-text text-xl italic">5 000 ₸</span>
                 </div>
             </div>
@@ -173,11 +174,11 @@
                     <div class="space-y-3 px-1">
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-300">1 игрок</span>
-                            <span class="font-800 text-white italic text-lg tracking-tighter">7 000 ₸</span>
+                            <span class="font-[800] text-white italic text-lg tracking-tighter">7 000 ₸</span>
                         </div>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-300">2 игрока</span>
-                            <span class="font-800 text-white italic text-lg tracking-tighter">10 000 ₸</span>
+                            <span class="font-[800] text-white italic text-lg tracking-tighter">10 000 ₸</span>
                         </div>
                     </div>
                 </div>
@@ -190,11 +191,11 @@
                     <div class="space-y-3 px-1">
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-300">1 игрок</span>
-                            <span class="font-800 text-white italic text-lg tracking-tighter">6 000 ₸</span>
+                            <span class="font-[800] text-white italic text-lg tracking-tighter">6 000 ₸</span>
                         </div>
                         <div class="flex justify-between items-center">
                             <span class="text-sm text-gray-300">2 игрока</span>
-                            <span class="font-800 text-white italic text-lg tracking-tighter">9 000 ₸</span>
+                            <span class="font-[800] text-white italic text-lg tracking-tighter">9 000 ₸</span>
                         </div>
                     </div>
                 </div>
