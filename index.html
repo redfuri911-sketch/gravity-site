@@ -3,542 +3,658 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Теннис в Таразе — Gravity Tennis Center | Тренировки для детей и взрослых, аренда кортов</title>
+    <title>Gravity Tennis Center — Крытые грунтовые корты в Таразе</title>
     <meta name="description" content="Крытые теннисные корты в Таразе. Групповые тренировки для детей от 4 лет — 50 000 ₸/мес. Индивидуальные занятия, аренда кортов от 4 000 ₸/час. Первое занятие для детей бесплатно.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://gravity-taraz.kz/">
-    <meta property="og:title" content="Теннис в Таразе — Gravity Tennis Center">
+    <meta property="og:title" content="Gravity Tennis Center — Теннис в Таразе">
     <meta property="og:description" content="Крытые грунтовые корты в Таразе. Тренировки для детей от 4 лет. Первое занятие бесплатно.">
-    <meta property="og:image" content="https://gravity-taraz.kz/preview.jpg">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image" content="https://gravity-taraz.kz/court1.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://gravity-taraz.kz/preview.jpg">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Inter:ital,wght@0,300;0,400;0,700;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
-            --clay:    #c85a00;
-            --hi:      #ff6b00;
-            --gold:    #ffb347;
-            --bg:      #080604;
-            --bg2:     #0d0b08;
-            --card:    rgba(18,14,10,0.97);
-            --line:    rgba(200,90,0,0.18);
-            --text:    #f0ebe5;
-            --muted:   #6a5040;
+            --orange:  #ff6b00;
+            --orange2: #e55a00;
+            --dark:    #1a0800;
+            --text:    #1a1208;
+            --muted:   #7a6050;
+            --light:   #fff8f3;
+            --white:   #ffffff;
+            --green:   #25d366;
         }
 
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--bg);
+            background: var(--white);
             color: var(--text);
-            -webkit-tap-highlight-color: transparent;
             overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* ── COURT GRID PATTERN ── */
-        .court-bg {
-            background-color: var(--bg2);
-            background-image:
-                repeating-linear-gradient(90deg, rgba(200,90,0,0.055) 0, rgba(200,90,0,0.055) 1px, transparent 1px, transparent 50px),
-                repeating-linear-gradient(0deg,  rgba(200,90,0,0.055) 0, rgba(200,90,0,0.055) 1px, transparent 1px, transparent 50px);
-        }
+        img { display: block; }
 
         /* ── HERO ── */
         .hero {
-            position: relative;
-            min-height: 100svh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 56px 24px 48px;
+            background: var(--orange);
+            padding: 44px 20px 36px;
             text-align: center;
+            position: relative;
             overflow: hidden;
-            background: #060402;
         }
-        .hero-img {
-            position: absolute; inset: 0;
-            background: url('court1.jpg') center/cover no-repeat,
-                        url('preview.jpg') center/cover no-repeat;
-            opacity: .22;
-        }
-        .hero-vignette {
-            position: absolute; inset: 0;
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
             background:
-                radial-gradient(ellipse 80% 55% at 50% 35%, rgba(200,80,0,.15) 0%, transparent 65%),
-                linear-gradient(to bottom, transparent 30%, #060402 92%);
-        }
-        .hero-grid {
-            position: absolute; inset: 0;
-            background:
-                repeating-linear-gradient(90deg, rgba(200,90,0,.045) 0, rgba(200,90,0,.045) 1px, transparent 1px, transparent 55px),
-                repeating-linear-gradient(0deg,  rgba(200,90,0,.045) 0, rgba(200,90,0,.045) 1px, transparent 1px, transparent 55px);
-        }
-        /* decorative racket */
-        .hero-racket {
-            position: absolute; right: -28px; top: 44px;
-            opacity: .055; pointer-events: none;
+                repeating-linear-gradient(90deg, rgba(255,255,255,.06) 0, rgba(255,255,255,.06) 1px, transparent 1px, transparent 52px),
+                repeating-linear-gradient(0deg,  rgba(255,255,255,.06) 0, rgba(255,255,255,.06) 1px, transparent 1px, transparent 52px);
+            pointer-events: none;
         }
 
-        .hero-inner { position: relative; z-index: 2; width: 100%; max-width: 340px; margin: 0 auto; }
+        .hero-logo {
+            width: 80px; height: 80px;
+            object-fit: contain;
+            margin: 0 auto 20px;
+            position: relative;
+            filter: brightness(0) invert(1);
+        }
 
-        /* ── GRAVITY LOGO ── */
-        .logo-wrap { margin-bottom: 24px; }
-        .logo-img  { width: 72px; height: 72px; object-fit: contain; filter: drop-shadow(0 0 18px rgba(255,107,0,.38)); }
+        .hero-logo-fallback {
+            width: 80px; height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.2);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 28px; font-weight: 900; color: #fff;
+        }
 
-        .hero-tag {
-            display: inline-block;
-            font-size: 9px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
-            color: var(--clay);
-            background: rgba(200,90,0,.14);
-            border-radius: 999px; padding: 4px 13px;
-            margin-bottom: 16px;
+        .hero-eyebrow {
+            font-size: 10px; font-weight: 700; letter-spacing: .22em;
+            text-transform: uppercase; color: rgba(255,255,255,.75);
+            margin-bottom: 10px; position: relative;
         }
 
         .hero-title {
             font-family: 'Big Shoulders Display', sans-serif;
-            font-size: 64px; font-weight: 900; line-height: .92;
-            letter-spacing: -.025em; color: #fff;
-            margin-bottom: 8px;
+            font-size: 72px; font-weight: 900; line-height: .9;
+            color: #fff; letter-spacing: -.02em;
+            position: relative; margin-bottom: 4px;
         }
-        .hero-title span { color: var(--hi); }
 
         .hero-sub {
             font-family: 'Big Shoulders Display', sans-serif;
-            font-size: 20px; font-weight: 700; font-style: italic;
-            color: var(--hi); letter-spacing: .01em;
-            margin-bottom: 6px;
+            font-size: 22px; font-weight: 700;
+            color: rgba(255,255,255,.75);
+            letter-spacing: .08em; text-transform: uppercase;
+            position: relative; margin-bottom: 24px;
         }
+
         .hero-desc {
-            font-size: 12px; color: #3a2a1a; letter-spacing: .04em;
-            margin-bottom: 28px; line-height: 1.6;
+            font-size: 14px; color: rgba(255,255,255,.85);
+            line-height: 1.6; margin-bottom: 28px;
+            position: relative;
         }
 
         /* ── BUTTONS ── */
         .btn-wa {
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            width: 100%; padding: 14px 20px; border-radius: 50px;
-            background: linear-gradient(135deg, #25d366, #128c7e);
-            color: #fff; font-size: 14px; font-weight: 700;
-            text-decoration: none; letter-spacing: .015em;
-            transition: transform .15s, opacity .15s;
-            box-shadow: 0 4px 24px rgba(37,211,102,.15);
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%; padding: 16px 20px; border-radius: 100px;
+            background: var(--green);
+            color: #fff; font-size: 15px; font-weight: 700;
+            text-decoration: none; letter-spacing: .01em;
+            position: relative;
+            transition: transform .15s, filter .15s;
         }
-        .btn-wa:active { transform: scale(.96); opacity: .9; }
+        .btn-wa:active { transform: scale(.97); filter: brightness(.93); }
 
-        .btn-clay {
-            display: flex; align-items: center; justify-content: center; gap: 8px;
-            width: 100%; padding: 13px 20px; border-radius: 50px;
-            background: linear-gradient(135deg, var(--hi), #cc3d00);
-            color: #fff; font-size: 13px; font-weight: 700;
+        .btn-orange {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%; padding: 15px 20px; border-radius: 100px;
+            background: var(--orange);
+            color: #fff; font-size: 15px; font-weight: 700;
+            text-decoration: none;
+            transition: transform .15s, filter .15s;
+        }
+        .btn-orange:active { transform: scale(.97); filter: brightness(.93); }
+
+        .btn-outline {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%; padding: 14px 20px; border-radius: 100px;
+            background: transparent; border: 2px solid var(--orange);
+            color: var(--orange); font-size: 14px; font-weight: 700;
             text-decoration: none;
             transition: transform .15s;
-            box-shadow: 0 4px 20px rgba(200,90,0,.2);
         }
-        .btn-clay:active { transform: scale(.96); }
+        .btn-outline:active { transform: scale(.97); }
 
-        /* scroll hint */
-        .scroll-hint {
-            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-            z-index: 2; opacity: .22;
-            animation: bob 2.2s ease-in-out infinite;
+        /* ── HERO PHOTO ── */
+        .hero-photo-wrap {
+            position: relative; margin: 0 -20px;
+            overflow: hidden;
         }
-        @keyframes bob { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(7px)} }
-
-        /* ── DIVIDER ── */
-        .divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--clay), transparent);
-            opacity: .38;
+        .hero-photo-wrap::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0; right: 0;
+            height: 40%;
+            background: linear-gradient(to bottom, transparent, var(--white));
+        }
+        .hero-photo {
+            width: 100%; aspect-ratio: 4/3;
+            object-fit: cover;
         }
 
-        /* ── STATS ── */
+        /* ── STATS BAR ── */
         .stats {
             display: grid; grid-template-columns: repeat(3, 1fr);
-            gap: 1px; background: #150f0a;
+            border-bottom: 1px solid #f0e8e0;
         }
-        .stat { background: var(--bg2); padding: 20px 10px; text-align: center; }
-        .stat-icon { font-size: 22px; margin-bottom: 6px; }
-        .stat-title { font-size: 11px; font-weight: 700; color: #fff; margin-bottom: 3px; line-height: 1.2; }
-        .stat-sub   { font-size: 9px; color: #2a1a0a; line-height: 1.35; }
+        .stat {
+            padding: 20px 8px; text-align: center;
+            border-right: 1px solid #f0e8e0;
+        }
+        .stat:last-child { border-right: none; }
+        .stat-num {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 32px; font-weight: 900; color: var(--orange);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 10px; font-weight: 600; color: var(--muted);
+            letter-spacing: .04em; margin-top: 4px; line-height: 1.3;
+        }
 
-        /* ── WHY SECTION ── */
-        .section { max-width: 420px; margin: 0 auto; padding: 0 16px; }
+        /* ── SECTIONS ── */
+        .section {
+            padding: 32px 20px;
+            max-width: 480px; margin: 0 auto;
+        }
+
         .section-label {
-            font-size: 8px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase;
-            color: var(--clay); padding: 22px 0 10px;
-        }
-
-        .why-card {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-top: 2px solid var(--hi);
-            border-radius: 22px;
-            padding: 20px;
-        }
-        .why-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-        .why-ball {
-            width: 44px; height: 44px; flex-shrink: 0; border-radius: 50%;
-            background: linear-gradient(135deg, var(--hi), #993000);
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 0 20px rgba(255,107,0,.28);
-        }
-        .why-h2 { font-size: 14px; font-weight: 800; color: #fff; line-height: 1.25; }
-        .why-body { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
-        .why-list { border-top: 1px solid rgba(200,90,0,.1); padding-top: 14px; display: flex; flex-direction: column; gap: 9px; }
-        .why-item { display: flex; gap: 9px; align-items: flex-start; }
-        .why-item span:first-child { color: var(--hi); flex-shrink: 0; margin-top: 1px; font-size: 13px; }
-        .why-item p { font-size: 13px; color: var(--muted); margin: 0; }
-
-        /* ── PHOTO GALLERY ── */
-        .gallery {
-            max-width: 420px; margin: 0 auto;
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 6px; padding: 0 16px 20px;
-        }
-        .gallery-item {
-            border-radius: 16px; overflow: hidden;
-            aspect-ratio: 3/4; background: #150f0a;
-            border: 1px solid rgba(200,90,0,.1);
-            position: relative;
-        }
-        .gallery-item:first-child { grid-column: 1 / -1; aspect-ratio: 16/9; }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        /* placeholder while no real photos */
-        .gallery-placeholder {
-            position: absolute; inset: 0;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            gap: 6px;
-        }
-        .gallery-placeholder span { font-size: 28px; }
-        .gallery-placeholder p { font-size: 9px; color: #2a1a0a; letter-spacing: .08em; text-transform: uppercase; }
-
-        /* ── PRICING ── */
-        .pricing { display: flex; flex-direction: column; gap: 10px; padding-bottom: 6px; }
-
-        .price-card {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-radius: 22px;
-            padding: 18px;
-        }
-        .price-card-top  { border-top: 2px solid var(--hi); }
-        .price-card-gold { border-top: 2px solid var(--gold); border-color: rgba(255,179,71,.18); }
-
-        .pc-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-        .pc-tag {
-            font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
-            padding: 3px 9px; border-radius: 999px;
-        }
-        .pc-tag-clay  { background: rgba(200,90,0,.16); color: var(--hi); }
-        .pc-tag-gold  { background: rgba(255,179,71,.13); color: var(--gold); }
-        .pc-tag-white { background: rgba(255,255,255,.07); color: #8a7060; }
-        .free-pill {
-            font-size: 7px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
-            background: linear-gradient(135deg, var(--hi), #cc3d00);
-            color: #fff; padding: 3px 8px; border-radius: 999px; white-space: nowrap;
-        }
-        .pc-name  { font-size: 14px; font-weight: 800; color: #fff; margin-bottom: 4px; }
-        .pc-price { font-size: 24px; font-weight: 800; color: var(--gold); }
-        .pc-unit  { font-size: 10px; color: #2a1a0a; }
-        .pc-per   { font-size: 10px; color: var(--hi); font-weight: 700; margin: 2px 0 12px; }
-        .pc-features {
-            display: flex; flex-direction: column; gap: 6px;
-            padding-bottom: 14px; border-bottom: 1px solid rgba(200,90,0,.08);
+            font-size: 10px; font-weight: 700; letter-spacing: .2em;
+            text-transform: uppercase; color: var(--orange);
             margin-bottom: 14px;
         }
-        .pc-features p { font-size: 12px; color: var(--muted); margin: 0; }
+
+        .section-title {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 36px; font-weight: 900; line-height: 1.05;
+            color: var(--dark); letter-spacing: -.01em;
+            margin-bottom: 12px;
+        }
+
+        .section-body {
+            font-size: 14px; color: var(--muted);
+            line-height: 1.7; margin-bottom: 16px;
+        }
+
+        /* ── PHOTO GRID ── */
+        .photo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            padding: 0 16px 16px;
+            max-width: 480px; margin: 0 auto;
+        }
+
+        .photo-grid-item {
+            border-radius: 16px; overflow: hidden;
+            background: #f0e8e0;
+            position: relative;
+        }
+        .photo-grid-item:first-child {
+            grid-column: 1 / -1;
+            aspect-ratio: 16/9;
+        }
+        .photo-grid-item:not(:first-child) {
+            aspect-ratio: 1;
+        }
+        .photo-grid-item img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .photo-placeholder {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            background: #f0e8e0;
+            font-size: 32px;
+        }
+
+        /* ── HORIZONTAL PHOTO SCROLL ── */
+        .photo-scroll-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding: 0 20px 20px;
+        }
+        .photo-scroll-wrap::-webkit-scrollbar { display: none; }
+        .photo-scroll {
+            display: flex; gap: 10px;
+            width: max-content;
+        }
+        .photo-scroll-item {
+            width: 240px; height: 300px;
+            border-radius: 20px; overflow: hidden;
+            background: #f0e8e0; flex-shrink: 0;
+            position: relative;
+        }
+        .photo-scroll-item img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .photo-scroll-item .photo-placeholder {
+            position: absolute; inset: 0;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 40px;
+        }
+
+        /* ── WHY LIST ── */
+        .why-list { display: flex; flex-direction: column; gap: 12px; }
+        .why-item {
+            display: flex; gap: 14px; align-items: flex-start;
+            padding: 14px 16px; border-radius: 16px;
+            background: var(--light);
+            border-left: 3px solid var(--orange);
+        }
+        .why-icon {
+            font-size: 22px; flex-shrink: 0; margin-top: 1px;
+        }
+        .why-text { font-size: 13px; color: var(--text); line-height: 1.6; }
+        .why-text strong { color: var(--dark); font-weight: 700; }
+
+        /* ── PRICING ── */
+        .pricing { display: flex; flex-direction: column; gap: 12px; }
+
+        .price-card {
+            border-radius: 20px; overflow: hidden;
+            border: 1.5px solid #f0e8e0;
+        }
+        .price-card-header {
+            padding: 16px 18px 14px;
+            background: var(--orange);
+        }
+        .price-card-header.gold { background: #1a0800; }
+        .price-card-header.neutral { background: #f8f4f0; }
+
+        .pc-tag {
+            display: inline-block;
+            font-size: 9px; font-weight: 700; letter-spacing: .18em;
+            text-transform: uppercase; color: rgba(255,255,255,.8);
+            background: rgba(255,255,255,.15);
+            padding: 3px 10px; border-radius: 999px; margin-bottom: 8px;
+        }
+        .pc-tag.dark-tag { color: var(--muted); background: rgba(0,0,0,.06); }
+
+        .free-badge {
+            float: right;
+            font-size: 8px; font-weight: 800; letter-spacing: .06em;
+            text-transform: uppercase; color: var(--orange);
+            background: #fff; padding: 3px 9px; border-radius: 999px;
+            margin-top: 2px;
+        }
+
+        .pc-price {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 38px; font-weight: 900; color: #fff;
+            line-height: 1;
+        }
+        .pc-price.dark-price { color: #ffb347; }
+        .pc-price.neutral-price {
+            font-size: 30px; color: var(--dark);
+        }
+
+        .pc-unit { font-size: 12px; color: rgba(255,255,255,.7); font-weight: 600; }
+        .pc-unit.dark-unit { color: rgba(255,179,71,.7); }
+        .pc-unit.neutral-unit { color: var(--muted); }
+
+        .price-card-body {
+            padding: 16px 18px;
+            background: var(--white);
+        }
+
+        .pc-name { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 10px; }
+
+        .pc-features {
+            display: flex; flex-direction: column; gap: 7px;
+            padding-bottom: 16px; margin-bottom: 16px;
+            border-bottom: 1px solid #f0e8e0;
+        }
+        .pc-features li {
+            list-style: none; font-size: 13px; color: var(--muted);
+            padding-left: 18px; position: relative; line-height: 1.5;
+        }
+        .pc-features li::before {
+            content: '✓'; position: absolute; left: 0;
+            color: var(--orange); font-weight: 700;
+        }
+
+        /* ── DIVIDER ── */
+        .divider { height: 1px; background: #f0e8e0; }
+
+        /* ── ORANGE BAND ── */
+        .orange-band {
+            background: var(--light);
+            border-top: 3px solid var(--orange);
+            border-bottom: 3px solid var(--orange);
+            padding: 24px 20px;
+            text-align: center;
+        }
+        .band-num {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 52px; font-weight: 900; color: var(--orange);
+            line-height: 1;
+        }
+        .band-label { font-size: 13px; color: var(--muted); margin-top: 4px; }
 
         /* ── REVIEWS ── */
-        .reviews { display: flex; flex-direction: column; gap: 10px; padding-bottom: 6px; }
-        .review-card {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-left: 2px solid var(--hi);
-            border-radius: 22px; padding: 16px;
-        }
-        .review-card.gold-border { border-left-color: var(--gold); }
-        .review-quote { font-size: 28px; line-height: 1; color: var(--clay); opacity: .5; font-family: Georgia, serif; margin-bottom: 6px; }
-        .review-text  { font-size: 13px; color: var(--muted); font-style: italic; line-height: 1.7; margin-bottom: 12px; }
-        .review-footer { display: flex; align-items: center; gap: 9px; border-top: 1px solid rgba(200,90,0,.08); padding-top: 10px; }
-        .review-avatar {
-            width: 32px; height: 32px; border-radius: 50%; flex-shrink: 0;
-            background: linear-gradient(135deg, var(--hi), #993000);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 11px; font-weight: 800; color: #fff;
-        }
-        .review-name { font-size: 11px; font-weight: 700; color: var(--text); }
-        .review-meta { font-size: 10px; color: #2a1a0a; }
-        .review-stars { margin-left: auto; font-size: 10px; color: var(--gold); }
+        .reviews { display: flex; flex-direction: column; gap: 12px; }
 
-        /* ── CTA ── */
-        .cta-wrap { padding: 0 16px 20px; }
-        .cta-card {
-            background: var(--card);
-            border: 1px solid var(--line);
-            border-top: 2px solid var(--hi);
-            border-radius: 24px; padding: 24px; text-align: center;
+        .review-card {
+            background: var(--light);
+            border-radius: 20px; padding: 18px;
+            border-left: 3px solid var(--orange);
         }
+
+        .review-text {
+            font-size: 14px; color: var(--text);
+            line-height: 1.7; font-style: italic; margin-bottom: 14px;
+        }
+        .review-text::before { content: '«'; color: var(--orange); font-size: 18px; font-style: normal; }
+        .review-text::after  { content: '»'; color: var(--orange); font-size: 18px; font-style: normal; }
+
+        .review-footer { display: flex; align-items: center; gap: 10px; }
+        .review-avatar {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--orange); color: #fff;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 14px; font-weight: 700; flex-shrink: 0;
+        }
+        .review-name { font-size: 12px; font-weight: 700; color: var(--dark); }
+        .review-meta { font-size: 11px; color: var(--muted); }
+        .review-stars { margin-left: auto; color: #f5a623; font-size: 13px; }
+
+        /* ── CTA BAND ── */
+        .cta-band {
+            background: var(--orange);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative; overflow: hidden;
+        }
+        .cta-band::before {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                repeating-linear-gradient(90deg, rgba(255,255,255,.05) 0, rgba(255,255,255,.05) 1px, transparent 1px, transparent 52px),
+                repeating-linear-gradient(0deg,  rgba(255,255,255,.05) 0, rgba(255,255,255,.05) 1px, transparent 1px, transparent 52px);
+        }
+        .cta-band-inner { position: relative; max-width: 440px; margin: 0 auto; }
         .cta-badge {
             display: inline-block;
-            background: linear-gradient(135deg, var(--hi), #cc3d00);
-            color: #fff; font-size: 8px; font-weight: 800;
-            letter-spacing: .1em; text-transform: uppercase;
-            padding: 3px 11px; border-radius: 999px; margin-bottom: 12px;
+            background: rgba(255,255,255,.2);
+            color: #fff; font-size: 9px; font-weight: 700;
+            letter-spacing: .18em; text-transform: uppercase;
+            padding: 4px 12px; border-radius: 999px; margin-bottom: 14px;
         }
         .cta-title {
             font-family: 'Big Shoulders Display', sans-serif;
-            font-size: 36px; font-weight: 900; color: #fff;
-            line-height: 1; letter-spacing: -.02em; margin-bottom: 8px;
+            font-size: 44px; font-weight: 900; color: #fff;
+            line-height: .95; letter-spacing: -.01em; margin-bottom: 10px;
         }
-        .cta-sub { font-size: 13px; color: #3a2a1a; line-height: 1.6; margin-bottom: 20px; }
-        .cta-note { font-size: 10px; color: #1a0f06; margin-top: 10px; }
+        .cta-sub {
+            font-size: 14px; color: rgba(255,255,255,.8);
+            line-height: 1.6; margin-bottom: 24px;
+        }
+        .btn-white {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            width: 100%; padding: 16px 20px; border-radius: 100px;
+            background: #fff; color: var(--orange);
+            font-size: 15px; font-weight: 700; text-decoration: none;
+            transition: transform .15s, filter .15s;
+        }
+        .btn-white:active { transform: scale(.97); filter: brightness(.96); }
 
         /* ── FOOTER ── */
         .footer {
-            max-width: 420px; margin: 0 auto;
-            padding: 20px 16px 36px; text-align: center;
+            background: var(--dark);
+            padding: 36px 20px 48px;
+            text-align: center;
         }
-        .footer-logo { width: 38px; height: 38px; object-fit: contain; opacity: .35; margin-bottom: 14px; filter: sepia(1) saturate(3) hue-rotate(10deg); }
-        .footer-addr { display: flex; justify-content: center; gap: 5px; margin-bottom: 8px; align-items: flex-start; }
-        .footer-addr-text { font-size: 11px; color: #2a1a0a; line-height: 1.45; }
-        .footer-phone { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
-        .footer-ig    { font-size: 11px; color: var(--clay); letter-spacing: .06em; }
-        .footer-domain{ font-size: 9px; color: #150f06; margin-top: 4px; }
+        .footer-logo {
+            width: 56px; height: 56px; object-fit: contain;
+            margin: 0 auto 20px;
+            filter: brightness(0) invert(1); opacity: .6;
+        }
+        .footer-logo-fallback {
+            width: 56px; height: 56px; border-radius: 50%;
+            margin: 0 auto 20px;
+            background: rgba(255,107,0,.2);
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 20px; font-weight: 900; color: var(--orange);
+        }
+        .footer-name {
+            font-family: 'Big Shoulders Display', sans-serif;
+            font-size: 22px; font-weight: 900; color: #fff;
+            letter-spacing: .04em; margin-bottom: 20px;
+        }
+        .footer-row {
+            display: flex; align-items: center; justify-content: center;
+            gap: 8px; margin-bottom: 10px;
+        }
+        .footer-row svg { flex-shrink: 0; opacity: .5; }
+        .footer-row-text { font-size: 13px; color: rgba(255,255,255,.55); }
+        .footer-phone {
+            font-size: 20px; font-weight: 700; color: #fff;
+            text-decoration: none; display: block; margin-bottom: 10px;
+        }
+        .footer-ig {
+            font-size: 13px; color: var(--orange); text-decoration: none;
+            display: block; margin-bottom: 20px; letter-spacing: .04em;
+        }
+        .footer-divider { height: 1px; background: rgba(255,255,255,.08); margin-bottom: 20px; }
+        .footer-copy { font-size: 11px; color: rgba(255,255,255,.25); }
 
-        /* ── WA ICON ── */
-        .wa-icon { flex-shrink: 0; }
+        /* WA SVG */
+        .wa-svg { flex-shrink: 0; }
     </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════
-     HERO
-══════════════════════════════════ -->
+<!-- ══ HERO ══ -->
 <section class="hero">
-    <div class="hero-img"></div>
-    <div class="hero-vignette"></div>
-    <div class="hero-grid"></div>
+    <img src="https://i.ibb.co/ZR32J7gz/EE18302-D-DF79-4-E8-E-837-A-706-CF9-F2-CE91.png"
+         alt="Gravity" class="hero-logo"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="hero-logo-fallback" style="display:none">G</div>
 
-    <!-- Racket deco -->
-    <svg class="hero-racket" width="220px" viewBox="0 0 120 220" fill="none">
-        <ellipse cx="60" cy="80" rx="52" ry="72" stroke="#ff6b00" stroke-width="5"/>
-        <line x1="60" y1="8"   x2="60"  y2="152" stroke="#ff6b00" stroke-width="1.5"/>
-        <line x1="8"  y1="80"  x2="112" y2="80"  stroke="#ff6b00" stroke-width="1.5"/>
-        <line x1="15" y1="44"  x2="105" y2="44"  stroke="#ff6b00" stroke-width="1"/>
-        <line x1="15" y1="116" x2="105" y2="116" stroke="#ff6b00" stroke-width="1"/>
-        <line x1="28" y1="18"  x2="28"  y2="142" stroke="#ff6b00" stroke-width="1"/>
-        <line x1="48" y1="10"  x2="48"  y2="150" stroke="#ff6b00" stroke-width="1"/>
-        <line x1="72" y1="10"  x2="72"  y2="150" stroke="#ff6b00" stroke-width="1"/>
-        <line x1="92" y1="18"  x2="92"  y2="142" stroke="#ff6b00" stroke-width="1"/>
-        <rect x="54" y="152" width="12" height="56" rx="6" fill="#ff6b00"/>
-    </svg>
+    <p class="hero-eyebrow">Тараз · Грунтовые корты</p>
+    <h1 class="hero-title">GRAVITY</h1>
+    <p class="hero-sub">Tennis Center</p>
+    <p class="hero-desc">Крытые корты — играем в любую погоду.<br>Тренировки для детей и взрослых.</p>
 
-    <div class="hero-inner">
-        <div class="logo-wrap">
-            <img src="https://i.ibb.co/ZR32J7gz/EE18302-D-DF79-4-E8-E-837-A-706-CF9-F2-CE91.png"
-                 alt="Gravity Tennis Center" class="logo-img">
-        </div>
+    <a href="https://wa.me/77760406670?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5."
+       target="_blank" class="btn-white" style="margin-bottom:12px">
+        <svg class="wa-svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Написать в WhatsApp
+    </a>
 
-        <div class="hero-tag">Тараз · Грунтовые корты</div>
-
-        <h1 class="hero-title">GRA<span>V</span>ITY</h1>
-        <p class="hero-sub">Tennis Center</p>
-        <p style="font-family:'Big Shoulders Display',sans-serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:.01em">
-            Крытые корты — играем<br>в любую погоду
-        </p>
-        <p class="hero-desc">Групповые и индивидуальные тренировки · Аренда кортов</p>
-
-        <a href="https://wa.me/77760406670?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%20%D0%B2%20Gravity%20Tennis%20Center.%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D1%80%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B8%20%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5%20%D0%BC%D0%B5%D1%81%D1%82%D0%B0."
-           target="_blank" class="btn-wa">
-            <svg class="wa-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            📲 Написать в WhatsApp
-        </a>
-    </div>
-
-    <div class="scroll-hint">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ff6b00" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    <div class="hero-photo-wrap" style="margin-top:28px">
+        <img src="court2.jpg" alt="Корт Gravity Tennis Center" class="hero-photo"
+             onerror="this.src='court1.jpg'">
     </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ══════════════════════════════════
-     STATS
-══════════════════════════════════ -->
+<!-- ══ STATS ══ -->
 <div class="stats">
     <div class="stat">
-        <div class="stat-icon">🎾</div>
-        <div class="stat-title">2 крытых корта</div>
-        <div class="stat-sub">Открыты в дождь и жару</div>
-    </div>
-    <div class="stat" style="border-top:2px solid var(--hi)">
-        <div class="stat-icon">👨‍👩‍👧</div>
-        <div class="stat-title">Дети от 4 лет</div>
-        <div class="stat-sub">Групп. и индивид.</div>
+        <div class="stat-num">2</div>
+        <div class="stat-label">крытых<br>корта</div>
     </div>
     <div class="stat">
-        <div class="stat-icon">🏆</div>
-        <div class="stat-title">Опытные тренеры</div>
-        <div class="stat-sub">Результат за 1 месяц</div>
+        <div class="stat-num">4+</div>
+        <div class="stat-label">лет —<br>дети</div>
+    </div>
+    <div class="stat">
+        <div class="stat-num">365</div>
+        <div class="stat-label">дней<br>в году</div>
     </div>
 </div>
 
-<div class="divider"></div>
+<!-- ══ GALLERY ══ -->
+<div style="padding:28px 0 0">
+    <div style="padding:0 20px;max-width:480px;margin:0 auto">
+        <p class="section-label">Наши корты</p>
+        <h2 style="font-family:'Big Shoulders Display',sans-serif;font-size:32px;font-weight:900;color:var(--dark);line-height:1;margin-bottom:16px">
+            Крытые грунтовые<br>корты в Таразе
+        </h2>
+    </div>
 
-<!-- ══════════════════════════════════
-     GALLERY (photos go here)
-══════════════════════════════════ -->
-<div style="max-width:420px;margin:0 auto">
-    <div class="section-label" style="padding-left:16px;padding-right:16px">Наши корты</div>
-    <div class="gallery">
-        <!-- Photo 1: wide court shot — hero gallery item -->
-        <div class="gallery-item">
-            <img src="court1.jpg" alt="Грунтовый корт Gravity Tennis Center — широкий план" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="gallery-placeholder" style="display:none">
-                <span>🏟️</span><p>Корт 1</p>
-            </div>
+    <div class="photo-grid" style="padding:0 16px 8px">
+        <div class="photo-grid-item">
+            <img src="court1.jpg" alt="Широкий план корта"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="photo-placeholder" style="display:none">🏟️</div>
         </div>
-        <!-- Photo 2: net close-up -->
-        <div class="gallery-item">
-            <img src="court2.jpg" alt="Сетка на грунтовом корте" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="gallery-placeholder" style="display:none">
-                <span>🎾</span><p>Корт 2</p>
-            </div>
+        <div class="photo-grid-item">
+            <img src="court4.jpg" alt="Мяч на линии"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="photo-placeholder" style="display:none">🎾</div>
         </div>
-        <!-- Photo 3: kids event -->
-        <div class="gallery-item">
-            <img src="court3.jpg" alt="Детская тренировка в Gravity Tennis Center" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="gallery-placeholder" style="display:none">
-                <span>🏋️</span><p>Тренировка</p>
-            </div>
-        </div>
-        <!-- Photo 4: ball on clay line macro -->
-        <div class="gallery-item">
-            <img src="court4.jpg" alt="Мяч на линии грунтового корта" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="gallery-placeholder" style="display:none">
-                <span>🎾</span><p>Грунт</p>
-            </div>
-        </div>
-        <!-- Photo 5: court depth view -->
-        <div class="gallery-item">
-            <img src="court5.jpg" alt="Вид вдоль корта" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="gallery-placeholder" style="display:none">
-                <span>🏟️</span><p>Корт</p>
-            </div>
-        </div>
-        <!-- Photo 6: lounge area -->
-        <div class="gallery-item">
-            <img src="court6.jpg" alt="Зона отдыха с видом на корт" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="gallery-placeholder" style="display:none">
-                <span>☕</span><p>Лаунж</p>
-            </div>
+        <div class="photo-grid-item">
+            <img src="court5.jpg" alt="Корт с мячами"
+                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div class="photo-placeholder" style="display:none">🎾</div>
         </div>
     </div>
-</div>
 
-<div class="divider"></div>
-
-<!-- ══════════════════════════════════
-     WHY TENNIS
-══════════════════════════════════ -->
-<div class="section court-bg" style="padding-top:1px;padding-bottom:24px">
-    <div class="section-label">Для родителей</div>
-    <div class="why-card">
-        <div class="why-head">
-            <div class="why-ball">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.8">
-                    <circle cx="12" cy="12" r="9"/>
-                    <path d="M3.6 9h16.8M3.6 15h16.8"/>
-                    <path d="M12 3c-2.5 3-2.5 15 0 18M12 3c2.5 3 2.5 15 0 18"/>
-                </svg>
+    <div class="photo-scroll-wrap">
+        <div class="photo-scroll">
+            <div class="photo-scroll-item">
+                <img src="court3.jpg" alt="Дети на корте"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="photo-placeholder" style="display:none">👧</div>
             </div>
-            <h2 class="why-h2">Почему тысячи родителей выбирают теннис?</h2>
-        </div>
-        <p class="why-body">Теннис развивает концентрацию, координацию и характер. Ребёнок учится проигрывать, бороться и побеждать — это навыки на всю жизнь.</p>
-        <p class="why-body" style="margin-bottom:0">В отличие от командных видов спорта, в теннисе <strong style="color:var(--text)">каждый ребёнок виден тренеру.</strong> Нет скамейки запасных.</p>
-        <div class="why-list">
-            <div class="why-item"><span>✦</span><p>Развивает внимание и реакцию</p></div>
-            <div class="why-item"><span>✦</span><p>Подходит детям, которым «скучны» командные игры</p></div>
-            <div class="why-item"><span>✦</span><p>Международный спорт — открывает двери в мир</p></div>
+            <div class="photo-scroll-item">
+                <img src="court6.jpg" alt="Зона отдыха"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="photo-placeholder" style="display:none">☕</div>
+            </div>
+            <div class="photo-scroll-item">
+                <img src="court2.jpg" alt="Ракетка у сетки"
+                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                <div class="photo-placeholder" style="display:none">🎾</div>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="divider"></div>
 
-<!-- ══════════════════════════════════
-     PRICING
-══════════════════════════════════ -->
-<div class="section court-bg" style="padding-top:1px;padding-bottom:24px">
-    <div class="section-label">Тарифы — первое занятие для детей бесплатно</div>
+<!-- ══ WHY ══ -->
+<div class="section">
+    <p class="section-label">Для родителей</p>
+    <h2 class="section-title">Почему выбирают теннис?</h2>
+    <p class="section-body">Теннис развивает концентрацию, координацию и характер. Каждый ребёнок виден тренеру — нет скамейки запасных.</p>
+
+    <div class="why-list">
+        <div class="why-item">
+            <div class="why-icon">🧠</div>
+            <p class="why-text"><strong>Развивает внимание и реакцию</strong> — каждый удар требует быстрого решения</p>
+        </div>
+        <div class="why-item">
+            <div class="why-icon">🎯</div>
+            <p class="why-text"><strong>Подходит с 4 лет</strong> — специальные программы для малышей</p>
+        </div>
+        <div class="why-item">
+            <div class="why-icon">🌍</div>
+            <p class="why-text"><strong>Международный спорт</strong> — открывает двери в мир</p>
+        </div>
+        <div class="why-item">
+            <div class="why-icon">🏠</div>
+            <p class="why-text"><strong>Крытые корты</strong> — никаких отмен из-за погоды</p>
+        </div>
+    </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ══ PRICING ══ -->
+<div class="section">
+    <p class="section-label">Тарифы</p>
+    <h2 class="section-title">Первое занятие для детей — бесплатно</h2>
+
     <div class="pricing">
 
-        <!-- Групповые -->
-        <div class="price-card price-card-top">
-            <div class="pc-header">
-                <span class="pc-tag pc-tag-clay">Групповые · дети</span>
-                <span class="free-pill">1-е бесплатно</span>
-            </div>
-            <div class="pc-name">Тренировки для детей</div>
-            <div><span class="pc-price">50 000 ₸</span><span class="pc-unit"> / месяц</span></div>
-            <div class="pc-per">= 4 200 ₸ за занятие · 12 тренировок</div>
-            <div class="pc-features">
-                <p>🎯 Группы: 4–7 лет, 8–12 лет, 13–16 лет</p>
-                <p>👥 До 6 детей в группе</p>
-                <p>🎾 Инвентарь включён</p>
-            </div>
-            <a href="https://wa.me/77760406670?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BA%D0%B0%20%D0%B2%20%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%BE%D0%B2%D1%8B%D0%B5%20%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B8%20Gravity%20Tennis%20Center."
-               target="_blank" class="btn-wa">
-                <svg class="wa-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Записать ребёнка →
-            </a>
-        </div>
-
-        <!-- Индивидуальные -->
-        <div class="price-card price-card-gold">
-            <div class="pc-header">
-                <span class="pc-tag pc-tag-gold">Индивидуальные</span>
-            </div>
-            <div class="pc-name">Персональные тренировки</div>
-            <div><span class="pc-price" style="font-size:20px">6 000–7 000 ₸</span><span class="pc-unit"> / занятие</span></div>
-            <div class="pc-per" style="color:var(--gold)">для детей и взрослых</div>
-            <div class="pc-features">
-                <p>👤 100% внимания тренера</p>
-                <p>⚡ Быстрый прогресс</p>
-            </div>
-            <a href="https://wa.me/77760406670?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%80%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85%20%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA%20Gravity%20Tennis%20Center."
-               target="_blank" class="btn-wa">
-                <svg class="wa-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Узнать расписание →
-            </a>
-        </div>
-
-        <!-- Аренда -->
         <div class="price-card">
-            <div class="pc-header">
-                <span class="pc-tag pc-tag-white">Аренда корта</span>
+            <div class="price-card-header">
+                <span class="free-badge">1-е бесплатно</span>
+                <div class="pc-tag">Групповые · Дети</div>
+                <div class="pc-price">50 000 <span style="font-size:20px">₸</span></div>
+                <div class="pc-unit">в месяц · 12 тренировок</div>
             </div>
-            <div class="pc-name">Играйте сами</div>
-            <div><span class="pc-price" style="font-size:20px;color:var(--text)">от 4 000 ₸</span><span class="pc-unit"> / час</span></div>
-            <div class="pc-per" style="visibility:hidden;margin-bottom:6px">—</div>
-            <div class="pc-features">
-                <p>🏠 Крытый корт — любая погода</p>
-                <p>📱 Бронирование по WhatsApp</p>
-                <p>🎾 Инвентарь напрокат</p>
+            <div class="price-card-body">
+                <div class="pc-name">Тренировки для детей</div>
+                <ul class="pc-features">
+                    <li>Группы: 4–7 лет, 8–12 лет, 13–16 лет</li>
+                    <li>До 6 детей в группе</li>
+                    <li>Инвентарь включён</li>
+                </ul>
+                <a href="https://wa.me/77760406670?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%20%D1%80%D0%B5%D0%B1%D1%91%D0%BD%D0%BA%D0%B0%20%D0%B2%20%D0%B3%D1%80%D1%83%D0%BF%D0%BF%D0%BE%D0%B2%D1%8B%D0%B5%20%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B8."
+                   target="_blank" class="btn-wa">
+                    <svg class="wa-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Записать ребёнка
+                </a>
             </div>
-            <a href="https://wa.me/77760406670?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BA%D0%BE%D1%80%D1%82%20%D0%B2%20Gravity%20Tennis%20Center."
-               target="_blank" class="btn-clay">
-                <svg class="wa-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                Забронировать корт →
-            </a>
+        </div>
+
+        <div class="price-card">
+            <div class="price-card-header gold">
+                <div class="pc-tag">Индивидуальные</div>
+                <div class="pc-price dark-price">6 000–7 000 <span style="font-size:18px">₸</span></div>
+                <div class="pc-unit dark-unit">за занятие · дети и взрослые</div>
+            </div>
+            <div class="price-card-body">
+                <div class="pc-name">Персональные тренировки</div>
+                <ul class="pc-features">
+                    <li>100% внимания тренера</li>
+                    <li>Быстрый прогресс</li>
+                    <li>Гибкое расписание</li>
+                </ul>
+                <a href="https://wa.me/77760406670?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D1%83%D0%B7%D0%BD%D0%B0%D1%82%D1%8C%20%D1%80%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D1%85%20%D1%82%D1%80%D0%B5%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%BE%D0%BA."
+                   target="_blank" class="btn-wa">
+                    <svg class="wa-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Узнать расписание
+                </a>
+            </div>
+        </div>
+
+        <div class="price-card">
+            <div class="price-card-header neutral">
+                <div class="pc-tag dark-tag">Аренда корта</div>
+                <div class="pc-price neutral-price">от 4 000 <span style="font-size:16px">₸</span></div>
+                <div class="pc-unit neutral-unit">в час</div>
+            </div>
+            <div class="price-card-body">
+                <div class="pc-name">Играйте сами</div>
+                <ul class="pc-features">
+                    <li>Крытый корт — любая погода</li>
+                    <li>Бронирование по WhatsApp</li>
+                    <li>Инвентарь напрокат</li>
+                </ul>
+                <a href="https://wa.me/77760406670?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%B1%D1%80%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C%20%D0%BA%D0%BE%D1%80%D1%82."
+                   target="_blank" class="btn-orange">
+                    <svg class="wa-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Забронировать корт
+                </a>
+            </div>
         </div>
 
     </div>
@@ -546,14 +662,13 @@
 
 <div class="divider"></div>
 
-<!-- ══════════════════════════════════
-     REVIEWS
-══════════════════════════════════ -->
-<div class="section" style="padding-top:0;padding-bottom:24px">
-    <div class="section-label">Отзывы родителей</div>
+<!-- ══ REVIEWS ══ -->
+<div class="section">
+    <p class="section-label">Отзывы</p>
+    <h2 class="section-title">Что говорят родители</h2>
+
     <div class="reviews">
         <div class="review-card">
-            <div class="review-quote">"</div>
             <p class="review-text">Отдала сына в 5 лет — боялась, что не потянет. Уже через месяц он сам просит на тренировку. Тренер объясняет понятно, атмосфера добрая.</p>
             <div class="review-footer">
                 <div class="review-avatar">А</div>
@@ -564,11 +679,10 @@
                 <div class="review-stars">★★★★★</div>
             </div>
         </div>
-        <div class="review-card gold-border">
-            <div class="review-quote" style="color:var(--gold)">"</div>
+        <div class="review-card">
             <p class="review-text">Главный плюс — крытый корт. Прошлым летом жара была страшная, а дети всё равно тренировались в комфорте. Никаких отмен из-за погоды.</p>
             <div class="review-footer">
-                <div class="review-avatar" style="background:linear-gradient(135deg,#5a3000,#2a1500)">Д</div>
+                <div class="review-avatar">Д</div>
                 <div>
                     <div class="review-name">Динара М.</div>
                     <div class="review-meta">мама Амины, 8 лет</div>
@@ -579,44 +693,42 @@
     </div>
 </div>
 
-<!-- ══════════════════════════════════
-     FINAL CTA
-══════════════════════════════════ -->
-<div class="court-bg" style="padding:4px 0 24px">
-    <div class="section">
-        <div class="cta-wrap" style="padding-left:0;padding-right:0">
-            <div class="cta-card">
-                <div class="cta-badge">Для детей</div>
-                <div class="cta-title">Первое занятие —<br>бесплатно</div>
-                <p class="cta-sub">Запишитесь сейчас и приходите попробовать.<br>Без обязательств.</p>
-                <a href="https://wa.me/77760406670?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5%20%D0%B2%20Gravity%20Tennis%20Center.%20%D0%9F%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D0%B6%D0%B8%D1%82%D0%B5%2C%20%D0%BF%D0%BE%D0%B6%D0%B0%D0%BB%D1%83%D0%B9%D1%81%D1%82%D0%B0%2C%20%D1%80%D0%B0%D1%81%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B8%20%D1%81%D0%B2%D0%BE%D0%B1%D0%BE%D0%B4%D0%BD%D1%8B%D0%B5%20%D0%BC%D0%B5%D1%81%D1%82%D0%B0."
-                   target="_blank" class="btn-wa" style="font-size:15px;padding:16px">
-                    <svg class="wa-icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    📲 Написать в WhatsApp
-                </a>
-                <p class="cta-note">Работаем ежедневно</p>
-            </div>
-        </div>
+<!-- ══ CTA ══ -->
+<div class="cta-band">
+    <div class="cta-band-inner">
+        <div class="cta-badge">Для детей</div>
+        <div class="cta-title">Первое занятие —<br>бесплатно</div>
+        <p class="cta-sub">Запишитесь и приходите попробовать.<br>Без обязательств.</p>
+        <a href="https://wa.me/77760406670?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D0%BF%D1%80%D0%BE%D0%B1%D0%BD%D0%BE%D0%B5%20%D0%B7%D0%B0%D0%BD%D1%8F%D1%82%D0%B8%D0%B5."
+           target="_blank" class="btn-white">
+            <svg class="wa-svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Написать в WhatsApp
+        </a>
     </div>
 </div>
 
-<!-- ══════════════════════════════════
-     FOOTER
-══════════════════════════════════ -->
+<!-- ══ FOOTER ══ -->
 <footer class="footer">
-    <div class="divider" style="margin-bottom:24px"></div>
     <img src="https://i.ibb.co/ZR32J7gz/EE18302-D-DF79-4-E8-E-837-A-706-CF9-F2-CE91.png"
-         alt="Gravity" class="footer-logo">
-    <div class="footer-addr">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--clay)" stroke-width="2" style="flex-shrink:0;margin-top:2px">
+         alt="Gravity" class="footer-logo"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="footer-logo-fallback" style="display:none">G</div>
+
+    <div class="footer-name">GRAVITY<br><span style="font-size:14px;font-weight:400;color:rgba(255,255,255,.4);letter-spacing:.12em">TENNIS CENTER</span></div>
+
+    <div class="footer-row">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
             <circle cx="12" cy="9" r="2.5"/>
         </svg>
-        <p class="footer-addr-text">г. Тараз, ул. Зои Космодемьянской, 20</p>
+        <span class="footer-row-text">г. Тараз, ул. Зои Космодемьянской, 20</span>
     </div>
-    <a href="tel:+77760406670" class="footer-phone" style="text-decoration:none;display:block">+7 776 040-66-70</a>
-    <a href="https://www.instagram.com/gravity_taraz" target="_blank" class="footer-ig" style="text-decoration:none">@gravity_taraz</a>
-    <p class="footer-domain">gravity-taraz.kz</p>
+
+    <a href="tel:+77760406670" class="footer-phone">+7 776 040-66-70</a>
+    <a href="https://www.instagram.com/gravity_taraz" target="_blank" class="footer-ig">@gravity_taraz</a>
+
+    <div class="footer-divider"></div>
+    <p class="footer-copy">© 2025 Gravity Tennis Center · gravity-taraz.kz</p>
 </footer>
 
 </body>
