@@ -197,62 +197,30 @@
             line-height: 1.7; margin-bottom: 16px;
         }
 
-        /* ── PHOTO GRID ── */
-        .photo-grid {
+        /* ── PHOTO GALLERY (responsive grid) ── */
+        .gallery {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             gap: 8px;
-            padding: 0 16px 16px;
-            max-width: 480px; margin: 0 auto;
+            padding: 0 16px 8px;
+            max-width: 520px; margin: 0 auto;
         }
-
-        .photo-grid-item {
+        .gallery-item {
             border-radius: 16px; overflow: hidden;
             background: #f0e8e0;
             position: relative;
-        }
-        .photo-grid-item:first-child {
-            grid-column: 1 / -1;
             aspect-ratio: 4/5;
         }
-        .photo-grid-item:not(:first-child) {
-            aspect-ratio: 1;
-        }
-        .photo-grid-item img {
+        .gallery-item img {
             width: 100%; height: 100%; object-fit: cover;
+            transition: transform .4s ease;
         }
+        .gallery-item:hover img { transform: scale(1.05); }
         .photo-placeholder {
             position: absolute; inset: 0;
             display: flex; align-items: center; justify-content: center;
             background: #f0e8e0;
             font-size: 32px;
-        }
-
-        /* ── HORIZONTAL PHOTO SCROLL ── */
-        .photo-scroll-wrap {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            padding: 0 20px 20px;
-        }
-        .photo-scroll-wrap::-webkit-scrollbar { display: none; }
-        .photo-scroll {
-            display: flex; gap: 10px;
-            width: max-content;
-        }
-        .photo-scroll-item {
-            width: 240px; height: 300px;
-            border-radius: 20px; overflow: hidden;
-            background: #f0e8e0; flex-shrink: 0;
-            position: relative;
-        }
-        .photo-scroll-item img {
-            width: 100%; height: 100%; object-fit: cover;
-        }
-        .photo-scroll-item .photo-placeholder {
-            position: absolute; inset: 0;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 40px;
         }
 
         /* ── WHY LIST ── */
@@ -463,6 +431,51 @@
 
         /* WA SVG */
         .wa-svg { flex-shrink: 0; }
+
+        /* ── DESKTOP ── */
+        @media (min-width: 760px) {
+            .hero { padding: 72px 24px 60px; }
+            .hero-logo, .hero-logo-fallback { width: 96px; height: 96px; }
+            .hero-title { font-size: 96px; }
+            .hero-sub { font-size: 28px; }
+            .hero-desc { font-size: 16px; }
+            .hero .btn-white { max-width: 360px; margin-left: auto; margin-right: auto; }
+            .hero-photo-wrap { max-width: 620px; margin: 32px auto 0; border-radius: 24px; }
+            .hero-photo-wrap::after { display: none; }
+            .hero-photo { aspect-ratio: 16/10; border-radius: 24px; }
+
+            .stats { max-width: 760px; margin: 0 auto; }
+            .stat-num { font-size: 40px; }
+            .stat-label { font-size: 12px; }
+
+            .section { max-width: 760px; padding: 48px 24px; }
+            .section-title { font-size: 44px; }
+            .section-body { font-size: 15px; max-width: 600px; }
+
+            .gallery {
+                max-width: 1080px;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+                padding: 0 24px 8px;
+            }
+
+            .why-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+            .pricing { flex-direction: row; align-items: stretch; }
+            .pricing .price-card { flex: 1; display: flex; flex-direction: column; }
+            .pricing .price-card-body { flex: 1; display: flex; flex-direction: column; }
+            .pricing .pc-features { flex: 1; }
+
+            .reviews { flex-direction: row; }
+            .reviews .review-card { flex: 1; }
+
+            .cta-title { font-size: 56px; }
+            .cta-band .btn-white { max-width: 360px; margin: 0 auto; }
+        }
+
+        @media (min-width: 1120px) {
+            .gallery { grid-template-columns: repeat(6, 1fr); }
+        }
     </style>
 </head>
 <body>
@@ -508,50 +521,27 @@
 </div>
 
 <!-- ══ GALLERY ══ -->
-<div style="padding:28px 0 0">
-    <div style="padding:0 20px;max-width:480px;margin:0 auto">
+<div class="gallery-section" style="padding:28px 0 8px">
+    <div style="padding:0 20px;max-width:1080px;margin:0 auto">
         <p class="section-label">Наши корты</p>
         <h2 style="font-family:'Big Shoulders Display',sans-serif;font-size:32px;font-weight:900;color:var(--dark);line-height:1;margin-bottom:16px">
-            Крытые грунтовые<br>корты в Таразе
+            Крытые грунтовые корты в Таразе
         </h2>
     </div>
 
-    <div class="photo-grid" style="padding:0 16px 8px">
-        <div class="photo-grid-item">
-            <img src="court1.jpg" alt="Широкий план корта"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="photo-placeholder" style="display:none">🏟️</div>
-        </div>
-        <div class="photo-grid-item">
-            <img src="court4.jpg" alt="Мяч на линии"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="photo-placeholder" style="display:none">🎾</div>
-        </div>
-        <div class="photo-grid-item">
-            <img src="court5.jpg" alt="Корт с мячами"
-                 onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-            <div class="photo-placeholder" style="display:none">🎾</div>
-        </div>
-    </div>
-
-    <div class="photo-scroll-wrap">
-        <div class="photo-scroll">
-            <div class="photo-scroll-item">
-                <img src="court3.jpg" alt="Дети на корте"
-                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                <div class="photo-placeholder" style="display:none">👧</div>
-            </div>
-            <div class="photo-scroll-item">
-                <img src="court6.jpg" alt="Зона отдыха"
-                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                <div class="photo-placeholder" style="display:none">☕</div>
-            </div>
-            <div class="photo-scroll-item">
-                <img src="court2.jpg" alt="Ракетка у сетки"
-                     onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                <div class="photo-placeholder" style="display:none">🎾</div>
-            </div>
-        </div>
+    <div class="gallery">
+        <div class="gallery-item"><img src="court1.jpg" alt="Купольный зал" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" style="display:none">🏟️</div></div>
+        <div class="gallery-item"><img src="court5.jpg" alt="Дети с маскотами" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" style="display:none">🧒</div></div>
+        <div class="gallery-item"><img src="court3.jpg" alt="Дети обнимают маскота" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" style="display:none">🐰</div></div>
+        <div class="gallery-item"><img src="court4.jpg" alt="Мяч на грунтовой линии" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" style="display:none">🎾</div></div>
+        <div class="gallery-item"><img src="court2.jpg" alt="Ракетка и корзина мячей" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" style="display:none">🎾</div></div>
+        <div class="gallery-item"><img src="court7.jpg" alt="Грунтовый корт, общий план" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" style="display:none">🏟️</div></div>
+        <div class="gallery-item"><img src="court6.jpg" alt="Лаунж-зона с видом на корт" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" style="display:none">☕</div></div>
+        <div class="gallery-item"><img src="court9.jpg" alt="Тренажёр и ракетки" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" style="display:none">🎾</div></div>
+        <div class="gallery-item"><img src="court8.jpg" alt="Ракетки у сетки" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" style="display:none">🎾</div></div>
+        <div class="gallery-item"><img src="court10.jpg" alt="Тренер и маскоты" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" style="display:none">🐰</div></div>
+        <div class="gallery-item"><img src="court11.jpg" alt="Ракетки и мяч на грунте" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" style="display:none">🎾</div></div>
+        <div class="gallery-item"><img src="court12.jpg" alt="Корзина с мячами" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="photo-placeholder" style="display:none">🎾</div></div>
     </div>
 </div>
 
